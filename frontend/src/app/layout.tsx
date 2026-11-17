@@ -1,8 +1,14 @@
 import type { Metadata } from 'next';
-import { Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+import { Syne, DM_Sans, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
-const spaceGrotesk = Space_Grotesk({
+const syne = Syne({
+  subsets: ['latin'],
+  variable: '--font-display',
+  weight: ['600', '700', '800'],
+});
+
+const dmSans = DM_Sans({
   subsets: ['latin'],
   variable: '--font-sans',
   weight: ['400', '500', '600', '700'],
@@ -15,8 +21,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'SALVAGE.SYS // E-Waste Recovery Workbench',
-  description: 'Municipal hardware recovery and atomic component allocation terminal.',
+  title: 'RECLAIM // Hardware Salvage Index',
+  description: 'Verified electronic component recovery and atomic allocation.',
 };
 
 export default function RootLayout({
@@ -25,8 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
-      <body className="bg-[#0B0D10] text-[#F2F4F8] font-sans antialiased selection:bg-[#38BDF8] selection:text-[#0B0D10]">
+    <html
+      lang="en"
+      className={`${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="bg-[#F5F4EF] text-[#18221E] font-sans antialiased selection:bg-[#1F6E4E] selection:text-white">
         {children}
       </body>
     </html>
